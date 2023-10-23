@@ -1,8 +1,4 @@
-# Use an official Tomcat runtime as the base image
-FROM tomcat:latest
-
-# Copy your WAR file from the local file system into the Tomcat webapps directory
-COPY ./dist/hello-world.war /usr/local/tomcat/webapps/
-
-# Expose the default Tomcat port
-EXPOSE 8080
+FROM tomcat
+COPY target/hello-world-war-1.0.0.war /usr/loca/tomcat/webapps/
+COPY target/hello-world-war-1.0.0.war /usr/local/tomcat/webapps/
+CMD ["catalina.sh", "run"]
